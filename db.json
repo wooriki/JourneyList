@@ -1,0 +1,16 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "writer": "Declan",
+      "title": "구급약품 준비",
+      "content": "습관성 장염대비"
+    },
+    {
+      "id": 2,
+      "writer": "Maddison",
+      "title": "긴옷 준비",
+      "content": "온도차를 위해 겉옷은 필수일듯"
+    }
+  ]
+}
