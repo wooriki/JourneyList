@@ -5,6 +5,7 @@ import SvgIcon from "@mui/material/SvgIcon";
 import { SvgIconComponent } from "@mui/icons-material";
 import HouseIcon from "@mui/icons-material/House";
 import { styled } from "styled-components";
+import Btn from "../Btn";
 
 function Icon(props) {
     return <SvgIcon component={HouseIcon} inheritViewBox />;
@@ -15,11 +16,10 @@ const Header = () => {
             <h3>반갑습니다.</h3>
             <SubTag>
                 <Link to="/">
-                    <Button variant="contained">
+                    <Btn>
                         <Icon />
-                    </Button>
+                    </Btn>
                 </Link>
-                <SubText>여행에 필요한 Check-List를 작성해 보세요!</SubText>
             </SubTag>
         </HeaderTag>
     );
@@ -28,8 +28,9 @@ const Header = () => {
 export default Header;
 
 const HeaderTag = styled.div`
-    width: 80%;
+    width: 40%;
     margin: 0 auto;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,7 +38,4 @@ const HeaderTag = styled.div`
 `;
 const SubTag = styled.p`
     text-align: right;
-`;
-const SubText = styled.p`
-    color: lightgray;
 `;

@@ -3,6 +3,8 @@ import Comments from "../components/Comments";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { deleteTodos, editTodos, getTodos } from "../axios/api";
+import { styled } from "styled-components";
+import Btn from "../components/Btn";
 
 const Detail = () => {
     const { id } = useParams();
@@ -64,46 +66,124 @@ const Detail = () => {
 
     return (
         <>
-            <Link to="/list">
-                <div>↩️</div>
+            <Body>
+                <InputTag>
+                    {edit ? (
+                        <div>
+                            <div>
+                                <InputArea
+                                    value={editedTitle}
+                                    onChange={onChangeEditedTitle}
+                                />
+                            </div>
+                            <div>
+                                <InputAreaWriter
+                                    value={editedWriter}
+                                    onChange={onChangeEditedWriter}
+                                />
+                            </div>
+                            <TextArea
+                                value={editedContents}
+                                onChange={onChangeEditedContents}
+                            />
+                        </div>
+                    ) : (
+                        <div>
+                            <TitleTag>
+                                {todo?.title}
+                                <Span> Write by {todo?.writer}</Span>
+                            </TitleTag>
+
+                            <ContentTag>{todo?.contents}</ContentTag>
+                        </div>
+                    )}
+                </InputTag>
+                {/* <Comments /> */}
+                <BtnGroup>
+                    <Btn onClick={() => editButtonHandler(todo.id)}>
+                        {edit ? "저장" : "수정"}
+                    </Btn>
+                    <Btn onClick={deleteButtonHandler}>삭제</Btn>
+                </BtnGroup>
+            </Body>
+            <Link to="/list" style={{ textDecoration: "none", color: "white" }}>
+                <Goto>Go Back To Check-List</Goto>
             </Link>
-            <div>
-                {edit ? (
-                    <div>
-                        <div>
-                            <input
-                                value={editedTitle}
-                                onChange={onChangeEditedTitle}
-                            />
-                        </div>
-                        <div>
-                            <input
-                                value={editedWriter}
-                                onChange={onChangeEditedWriter}
-                            />
-                        </div>
-                        <textarea
-                            value={editedContents}
-                            onChange={onChangeEditedContents}
-                        />
-                    </div>
-                ) : (
-                    <div>
-                        <div>📀{todo?.title}</div>
-                        <div>{todo?.writer}</div>
-                        <div>{todo?.contents}</div>
-                    </div>
-                )}
-            </div>
-            {/* <Comments /> */}
-            <div>
-                <button onClick={deleteButtonHandler}>삭제</button>
-                <button onClick={() => editButtonHandler(todo.id)}>
-                    {edit ? "저장" : "수정"}
-                </button>
-            </div>
         </>
     );
 };
 
 export default Detail;
+
+const Body = styled.div`
+    width: 40%;
+    background-color: #d6d6d6;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 10px 20px;
+
+    align-items: center;
+    box-shadow: 6px 6px 10px lightgray;
+`;
+const TitleTag = styled.p`
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+`;
+const Span = styled.span`
+    color: #808080;
+    font-size: 12px;
+    float: right;
+    margin-top: 6px;
+`;
+const ContentTag = styled.p`
+    height: 120px;
+    margin-top: 10px;
+    padding: 0 10px;
+`;
+const BtnGroup = styled.div`
+    display: flex;
+    justify-content: flex-end;
+`;
+
+const Goto = styled.p`
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #7db3b0;
+    text-align: right;
+`;
+const InputTag = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+const InputAreaWriter = styled.input`
+    width: 260px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-left: 6px;
+    padding: 0 4px;
+    border-radius: 6px;
+    border: 1px solid gray;
+`;
+const InputArea = styled.input`
+    width: 260px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-left: 6px;
+    padding: 0 4px;
+    border-radius: 6px;
+    border: 1px solid gray;
+`;
+const TextArea = styled.textarea`
+    width: 260px;
+    height: 70px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-left: 6px;
+    padding: 0 4px;
+    border-radius: 6px;
+    border: 1px solid gray;
+`;

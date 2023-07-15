@@ -18,7 +18,7 @@ const Layout = () => {
 export default Layout;
 
 const BodyTag = styled.div`
-    width: 1200px;
+    width: 1000px;
     padding-top: 40px;
     margin: 0 auto;
 `;
