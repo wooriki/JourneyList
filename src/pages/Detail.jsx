@@ -57,6 +57,7 @@ const Detail = () => {
             };
             await editMutation.mutateAsync(editedPlaylist);
             queryClient.invalidateQueries("todo");
+            alert("수정이 완료되었습니다.");
         } else {
             setEditedWriter(todo?.writer);
             setEditedTitle(todo?.title);

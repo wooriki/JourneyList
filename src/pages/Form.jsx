@@ -47,6 +47,10 @@ const Form = () => {
     });
     const addButtonHandler = async () => {
         // 입력값 검사
+        if (!writer || !title || !contents) {
+            alert("모든 입력칸을 채워주세요.");
+            return;
+        }
         alert("기록 완료!");
         const newTodo = {
             id: shortid(),
@@ -95,7 +99,7 @@ const Form = () => {
                     <TextArea
                         value={contents}
                         onChange={onChangeContents}
-                        placeholder="추가적인 메모를 해주세요.(50자 이내)"
+                        placeholder="추가적인 메모를 해주세요.(40자 이내)"
                     />
                 </TATag>
                 <CustomBtn
