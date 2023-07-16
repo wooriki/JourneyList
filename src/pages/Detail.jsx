@@ -25,7 +25,7 @@ const Detail = () => {
         setEditedContents(event.target.value);
     };
 
-    // Playlist 삭제
+    // Todos 삭제
     const navigate = useNavigate();
     const deleteMutation = useMutation(deleteTodos, {
         // 삭제하면 조회할 필요 없잖아...
@@ -40,7 +40,7 @@ const Detail = () => {
         // 삭제하면 이전페이지(List)로 이동하기
     };
 
-    // Playlist 수정
+    // Todos 수정
     const editMutation = useMutation(editTodos, {
         onSuccess: () => {
             queryClient.invalidateQueries("todos");
@@ -49,13 +49,13 @@ const Detail = () => {
     const editButtonHandler = async () => {
         setEdit(!edit);
         if (edit) {
-            const editedPlaylist = {
+            const editedTodos = {
                 id,
                 name: editedWriter,
                 title: editedTitle,
                 contents: editedContents,
             };
-            await editMutation.mutateAsync(editedPlaylist);
+            await editMutation.mutateAsync(editedTodos);
             queryClient.invalidateQueries("todo");
             alert("수정이 완료되었습니다.");
         } else {
