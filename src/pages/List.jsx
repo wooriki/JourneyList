@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import { checkTodos } from "../axios/api";
 import { Link } from "react-router-dom";
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
 
 const List = () => {
     // Playlist 조회
@@ -35,6 +35,15 @@ const List = () => {
 
 export default List;
 
+const hoverStyle = css`
+    &:hover {
+        transform: scale(1.025); /* 원하는 크기로 조정하세요 */
+        transition: transform 0.3s;
+        background-color: #8dc4c2;
+        color: white;
+    }
+`;
+
 const Body = styled.div`
     width: 40%;
     margin: 0 auto;
@@ -51,10 +60,7 @@ const TextTag = styled.div`
     border-radius: 10px;
     margin-bottom: 10px;
     box-shadow: 6px 6px 14px lightgray;
-    &: hover {
-        background-color: #8dc4c2;
-        color: white;
-    }
+    ${hoverStyle}
 `;
 const Span = styled.span`
     color: #808080;
