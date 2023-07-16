@@ -11,11 +11,11 @@ https://www.notion.so/80b3ee3242e34816a1f3ddb41a36b862?v=fdb0330147394238ae31f5a
 ![screencapture-notion-so-80b3ee3242e34816a1f3ddb41a36b862-2023-07-16-21_26_28](https://github.com/wooriki/JourneyList/assets/109304556/521b851c-0ec1-4fd1-9048-fb3cc1e9b41e)
 
 ## 주요 기능
-1. Main Page - 첫 렌더시 보여지는 페이지이며, 작성자 명과 함께 필요 항목, 메모를 할 수 있게 구성하였다.
+1. Main Page - 첫 렌더시 보여지는 페이지이며, 작성자 명과 함께 필요 항목, 메모를 할 수 있게 구성.
    추가하기 클릭 시 Check List Page 이동
 * 항목 추가(작성)
 
-2. Check List Page - 추가된 순서에 맞춰 배열을 보여주고 있으며, 클릭 시 해당 id값의 내부 Detail Page로 이동한다.
+2. Check List Page - 추가된 순서에 맞춰 배열을 보여주고 있으며, 클릭 시 해당 id값의 내부 Detail Page로 이동.
 * 항목 조회
 
 3. Detail Page - 항목의 contents를 포함하여 수정 삭제 기능 구현.
